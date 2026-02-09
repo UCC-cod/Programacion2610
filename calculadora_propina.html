@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Calculadora de Propina</h2>
+
+<input id="total" placeholder="Total de la cuenta">
+<br><br>
+
+<input id="porcentaje" placeholder="Propina %">
+<br><br>
+
+<button onclick="calcular()">Calcular</button>
+<p id="resultado"></p>
+
+<script>
+function calcular() {
+
+    total = total.value;
+    porcentaje = porcentaje.value;
+
+    propina = total * porcentaje / 100;
+    totalFinal = total * 1 + propina;
+
+    resultado.innerText =
+        "Propina: $" + propina +
+        " | Total a pagar: $" + totalFinal;
+}
+</script>
+
+</body>
+</html>
