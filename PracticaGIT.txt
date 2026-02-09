@@ -1,0 +1,161 @@
+Práctica completa: Mi primer repositorio en GitHub 
+
+ 
+
+Esta es la guía completa paso a paso para iniciar con GitHub, incluyendo todas las instrucciones detalladas que aparecían en la respuesta original. 
+
+OBJETIVO: crear un repositorio, subir archivos, hacer commits, manejar ramas y crear un pull request básico. 
+
+ 
+
+PARTE A – Usando SOLO GitHub Web 
+
+1. Crear una cuenta en GitHub 
+
+- Visita https://github.com 
+
+- Presiona Sign up 
+
+- Registra correo, contraseña y usuario 
+
+- Verifica tu correo 
+
+ 
+
+2. Crear tu primer repositorio 
+
+- Clic en el ícono + 
+
+- Seleccionar New repository 
+
+- Repository name: mi-primer-repo 
+
+- Public 
+
+- Marcar Add a README 
+
+- Crear el repositorio 
+
+ 
+
+3. Editar un archivo 
+
+- Abrir README.md 
+
+- Presionar Edit 
+
+- Escribir contenido 
+
+- Commit: Actualiza README con presentación 
+
+ 
+
+4. Crear un archivo nuevo 
+
+- Add file → Create new file 
+
+- Nombre: hola.js 
+
+- Código: console.log("Hola desde GitHub!") 
+
+- Commit 
+
+ 
+
+5. Crear una rama (branch) 
+
+- Clic en main 
+
+- Escribir: experimentos 
+
+- Crear rama 
+
+ 
+
+6. Cambios en la rama 
+
+- Editar hola.js 
+
+- Commit 
+
+ 
+
+7. Crear Pull Request 
+
+- Compare & pull request 
+
+- Describir cambios 
+
+- Create pull request 
+
+ 
+
+8. Fusionar PR 
+
+- Merge pull request 
+
+- Confirm merge 
+
+- Delete branch 
+
+ 
+
+PARTE B – Git + VS Code 
+
+ 
+
+1. Instalar Git 
+
+- https://git-scm.com 
+
+ 
+
+2. Clonar el repositorio 
+
+- git clone https://github.com/<usuario>/mi-primer-repo.git 
+
+ 
+
+3. Editar archivos localmente 
+
+- cd mi-primer-repo 
+
+- Editar o crear archivos 
+
+ 
+
+4. Commit local 
+
+- git add . 
+
+- git commit -m "mensaje" 
+
+ 
+
+5. Subir cambios 
+
+- git push origin main 
+
+ 
+
+6. Crear nueva rama 
+
+- git checkout -b nueva-idea 
+
+- git push origin nueva-idea 
+
+ 
+
+PARTE C – Reto de Colaboración 
+
+1. Cada estudiante clona el repositorio del compañero 
+
+2. Crear rama: colaboracion-<nombre> 
+
+3. Crear archivo mensaje-<nombre>.txt 
+
+4. Crear Pull Request en el repo del compañero 
+
+5. El compañero revisa y aprueba 
+
+ 
