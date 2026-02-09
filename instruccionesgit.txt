@@ -1,0 +1,7 @@
+git init
+git checkout -b adriana
+git add .
+git commit -m "Primer commit"
+git remote add origin https://github.com/UCC-cod/Programacion2610.git
+git push -u origin adriana
+//Les va a pedir que inicie sesión en github
