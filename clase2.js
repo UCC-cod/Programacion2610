@@ -41,7 +41,7 @@ for (let i = 0; i < numeros.length; i++)
 {
   sumaNum += numeros[i];
 }
-console.log("Suma de los números:", sumaNum);
+//console.log("Suma de los números:", sumaNum);
 
 //for of
 for (const i of numeros) {
@@ -70,4 +70,56 @@ let c = 0;
 while (c < 3) {c++};
 let d = 0;
 do {d++} while (d < 3);
-//
+
+//Arrays 
+console.log("Arrays");
+const nums = [1, 2, 3, 4];
+const A = nums.slice(); 
+console.log("Slice ",A); 
+
+//Agrega un elemento al final del array
+nums.push(20);
+console.log("Push ", nums);
+
+//Elimina el ultimo elemento del array
+console.log("Pop ", nums.pop()); 
+
+//Elimina el primer elemento del array
+nums.shift();
+console.log("Shift ", nums);
+
+//Agrega un elemento en la posicion 0 del array
+nums.unshift(0);
+console.log(nums);
+
+//Splice 
+//Posición, cantidad de elementos a eliminar, elementos a agregar 
+const remover = nums.splice(2, 2, 0);
+console.log(nums);
+
+//Includes 
+//Verifica si hay un elemento en la lista 
+console.log("Includes ", nums.includes(4)); //false
+
+//indexOf : me indica la posición del elemento 
+console.log("IndexOf ", nums.indexOf(9)); //0
+
+//find: Trae el primer elemento que cumple una condición
+console.log("Find ", nums.find(num => num > 1)); //
+
+//Map
+const FMap = nums.map(n => n * 2);
+console.log("Map ", FMap);
+
+//Filter: Trae los elementos que cumplen una condición
+const pares = nums.filter(n => n%2===0);
+console.log("Filter pares ", pares);
+
+//Reduce 
+const sumaNums = nums.reduce((acc, n) => acc + n, 0);
+console.log("Reduce en nums", sumaNums);
+
+//ForEach : Crea un nuevo array con el resultado de la función aplicada a cada elemento del array original
+let multiplicadosNums = [];
+nums.forEach(n => multiplicadosNums.push(n * 2));
+console.log(multiplicadosNums);
