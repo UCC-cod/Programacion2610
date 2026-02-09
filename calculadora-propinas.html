@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Propinas </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .contenedor {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 450px;
+            width: 100%;
+            animation: aparecer 0.5s ease-out;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2em;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 0.9em;
+        }
+
+        .grupo-input {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .resultado {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            text-align: center;
+            display: none;
+            animation: deslizar 0.4s ease-out;
+        }
+
+        @keyframes deslizar {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .resultado.visible {
+            display: block;
+        }
+
+        .detalle {
+            margin: 10px 0;
+            color: #555;
+            font-size: 1em;
+        }
+
+        .total {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 15px 0;
+        }
+
+        .icono {
+            font-size: 1.2em;
+        }
+
+        .ayuda {
+            background: #fffbea;
+            border-left: 4px solid #f6c344;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 0.85em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <h1> Calculadora de Propinas</h1>
+        <p class="subtitulo">Calcula fácilmente tu cuenta total con propina</p>
+
+        <form id="formulario">
+            <div class="grupo-input">
+                <label for="cuenta"> Valor de la cuenta ($)</label>
+                <input 
+                    type="number" 
+                    id="cuenta" 
+                    placeholder="Ej: 50.00" 
+                    step="0.01" 
+                    min="0" 
+                    required
+                >
+            </div>
+
+            <div class="grupo-input">
+                <label for="propina"> Porcentaje de propina (%)</label>
+                <input 
+                    type="number" 
+                    id="propina" 
+                    placeholder="Ej: 15" 
+                    step="0.01" 
+                    min="0" 
+                    max="100" 
+                    required
+                >
+            </div>
+
+            <button type="submit">Calcular Total</button>
+        </form>
+
+        <div id="resultado" class="resultado">
+            <div class="detalle">
+                <span class="icono"></span> Cuenta: $<span id="cuentaOriginal">0.00</span>
+            </div>
+            <div class="detalle">
+                <span class="icono"></span> Propina (<span id="porcentajePropina">0</span>%): $<span id="valorPropina">0.00</span>
+            </div>
+            <div class="total">
+                $<span id="totalPagar">0.00</span>
+            </div>
+            <div style="color: #888; font-size: 0.9em; margin-top: 10px;">
+                Total a pagar
+            </div>
+        </div>
+
+        <div class="ayuda">
+            💡 <strong>Tip:</strong> La propina común es entre 10% y 20%. ¡Elige el porcentaje que prefieras!
+        </div>
+    </div>
+
+    <script>
+        function calcularPropina(valorCuenta, porcentajePropina) {
+            const propina = (valorCuenta * porcentajePropina) / 100;
+            const total = valorCuenta + propina;
+            return {
+                cuentaOriginal: valorCuenta,
+                porcentaje: porcentajePropina,
+                valorPropina: propina,
+                totalAPagar: total
+            };
+        }
+
+        const formulario = document.getElementById('formulario');
+        formulario.addEventListener('submit', function(evento) {
+            evento.preventDefault();
+            const valorCuenta = parseFloat(document.getElementById('cuenta').value);
+            const porcentajePropina = parseFloat(document.getElementById('propina').value);
+            if (isNaN(valorCuenta) || isNaN(porcentajePropina)) {
+                alert('Por favor ingresa valores numéricos válidos');
+                return;
+            }
+            
+            if (valorCuenta < 0 || porcentajePropina < 0) {
+                alert('Los valores deben ser positivos');
+                return;
+            }
+            const resultado = calcularPropina(valorCuenta, porcentajePropina);
+            mostrarResultado(resultado);
+        });
+        function mostrarResultado(datos) {
+            document.getElementById('cuentaOriginal').textContent = datos.cuentaOriginal.toFixed(2);
+            document.getElementById('porcentajePropina').textContent = datos.porcentaje.toFixed(0);
+            document.getElementById('valorPropina').textContent = datos.valorPropina.toFixed(2);
+            document.getElementById('totalPagar').textContent = datos.totalAPagar.toFixed(2);
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.classList.add('visible');
+        }
+        console.log('Calculadora de Propinas cargada correctamente');
+        console.log('Este código es perfecto para aprender:');
+        console.log('   • Funciones en JavaScript');
+        console.log('   • Manipulación del DOM');
+        console.log('   • Eventos de formularios');
+        console.log('   • Operadores matemáticos');
+        console.log('   • HTML y CSS modernos');
+    </script>
+</body>
+</html>
