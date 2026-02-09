@@ -30,4 +30,4 @@ const numeros = [5, 2, 9, 1, 5, 6];
 console.log("numeros ordenados: ", numeros.sort((a, b) => a - b)); // Ordenar de menor a mayor
 console.log("numeros ordenados: ", numeros.sort((a, b) => b - a)); // Ordenar de mayor a menor
 
-const nombre= "adriana";
+const nombre= "karla";
