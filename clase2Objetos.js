@@ -32,3 +32,4 @@ const nombre = " deysimar morales arboleda"
 //ordenar de manera alfabetica
 console.log("Mayusculas: ", nombre.toUpperCase());
 console.log("minusculas: ", nombre.toLowerCase());
+ 
