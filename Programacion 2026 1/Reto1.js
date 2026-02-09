@@ -1,4 +1,4 @@
-/*calculadora de propinas */
+/*calculadora de propinas beta */
 
 const calcularTotal = (costo, porcentaje)=>{
     const propina = costo * (porcentaje / 100);
