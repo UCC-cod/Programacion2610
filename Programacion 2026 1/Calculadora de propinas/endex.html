@@ -8,19 +8,22 @@
 <body>
     <div class="card">
         <h2>Calculadora de propinas</h2>
+        <form id="formulario">
+         <input type="number" id="costo" placeholder="costo" required>
+         <input type="number" id="porcentaje" placeholder="porcentaje" required>
+         <button type="submit">calcular</button>
+
+        </form>
+       
+        <p id="resultado"></p>
     </div>
      
     
 
 
-    <form id="formulario">
-        <input type="number" id="costo" placeholder="costo" required>
-        <input type="number" id="porcentaje" placeholder="porcentaje" required>
-        <button type="submit">calcular</button>
+    
 
-    </form>
-
-    <p id="resultado"></p>
+    
 
 
     <script src="maquina.js"></script>
