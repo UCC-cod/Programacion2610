@@ -1,0 +1,37 @@
+*{
+    padding:0;
+    margin:0;
+   }
+body{
+   background-image: url("gatochef.png");
+   background-repeat: no-repeat;
+   background-position: 600px 89px ;
+   background-color: rgb(159, 190, 247);
+   padding: 20px;
+   margin-top: 3px;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.nose {
+   
+   padding: 40px;
+   margin: 30px;
+   background-color: rgb(255, 255, 255);
+   border-radius: 30px;
+
+}
+
+button{
+      background-color: rgb(65, 99, 211);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;     
+}
+
+button:hover{
+    background-color: rgb(126, 151, 233);
+    color: white;
+}
