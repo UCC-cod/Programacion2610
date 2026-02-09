@@ -1,54 +1,54 @@
 /*
-Variables: let, var, const
-- let: variable de bloque - reasignar
-- const: variable de bloque -no reasignable
-- var: ámbito de función - No
+Variable: let, var, const 
+-let: variable de bloque - reasignar
+- const: variable de bloque - no reasignable
+- var: ambito de funcion - No 
 
 Nombre de las variables
 - camelCase edadEstudiante
-- descriptivas
-- espacios
-- no puede empezar con número
-- sensibles a mayúsculas
-- No usar carácteres especiales
-- No usar palabras reservadas
+- Descriptivas
+- Espacios 
+- No puede empezar con numeros
+- Sensibles a mayusculas
+- No usar caracteres especiales
+- No usa palabras reservadas   
 
 */
 
-console.log("1. Variables");
+console.log("1. variables");
 
 let contador = 0;
-// 0
-contador = contador + 1;
-// 1
+//0
+contador = contador + 1
+//1
 contador += 1;
-// 2
-//console.log("El contador es: ", contador);
+//2
+console.log("El contador es:", contador);
 
 //Literales
-let nombre = "Adriana";
+let nombre = "adriana";
 let edad = 38;
 const mensaje = `Hola, me llamo ${nombre} y tengo ${edad} años`;
-//console.log(mensaje);
+console.log(mensaje);
 
-//Diferencia entre let y var en ámbito de bloque
+//Diferencia entre let y var en ambito de bloque 
 if(true){
     let x = "let-bloque";
-    var y = "var-función";
+    var y = "var-funcion";
 
     console.log("Dentro del if");
     console.log(x);
-    console.log(y);  
+    console.log(y);
 }
 //console.log("Por fuera del if");
 //console.log(x);
 //console.log(y);
 
 /*
-Tipos de datos
-- Primitivos: number, string, boolean, null, undefined, bigint, symbol
-- Referencia: Object (arrays, funciones)
-- typeof - función para saber el tipo de dato
+Tipos de datos 
+- Primitivos: number, string, boolean, null, undefined, bigint, symbol 
+- Referencia: Object(arrays, funciones)}
+- typeof - funcion para saber el tipo de dato
 - NaN : not a number
 */
 console.log("2. Tipos de datos");
@@ -58,129 +58,99 @@ console.log(typeof "42"); //string
 console.log(typeof true); //boolean
 console.log(typeof undefined); //undefined
 console.log(typeof null); //objeto
-console.log(typeof Symbol('id')); //symbol
+console.log(typeof Symbol(`id`)); //symbol
 console.log(typeof 10n); //bigint
-console.log(typeof {a: 1}); //Objeto
-console.log(typeof [1, 2]); //Objeto
-console.log(typeof function (){}); //función
+console.log(typeof {a: 1}); //objeto
+console.log(typeof [1, 2]); //objeto
+console.log(typeof function (){}); //funcion
 
-const operacion = "hola"*3; 
+const operacion = "hola"*3;
 console.log(operacion); //NaN
-console.log(typeof operacion); //Number
+console.log(typeof operacion); //number
 const suma = "hola" + 3;
-console.log(suma); //Concatenar
+console.log(suma); //concatenar
 console.log(typeof suma); //string
 
 
-//Conversión
+// Conversion
 
 const numero = "123";
 console.log(typeof numero);
-console.log(typeof Number(numero)); //Number es una función
+console.log(typeof Number(numero));// Number es una funcion
 
 const binario = "true";
 console.log(typeof binario);
-console.log(typeof Boolean(binario)); //Convierto a boolean
+console.log(typeof Boolean(binario));// Convierto a binario
 
 const numero2 = 123;
-console.log(typeof String(numero2)); //Convierto a String
+console.log(typeof String(numero2));// Convierto a String
 
 console.log("3. Operadores");
 /*
-Operadores Aritméticos
+Operadores Aritmeticos 
 + - * / %
 */
+ 
+console.log(2+3*4);//14
+console.log((2+3)*4);//20
+console.log(10%3);//1
+console.log(2**5);//potencia 2 elevado a la 5 = 32
 
-console.log(2+3*4); //14
-console.log((2+3)*4); //20
-console.log(10%3); //1
-console.log(2**5); //potencia 2 elevado a la 5 = 32
-
-//Comparación
+//Comparacion
 let valor1 = 5;
 let valor2 = "5";
 
-console.log(valor1==valor2); //true compara los valores
-console.log(valor1===valor2); //false comparación estricta compara valores + tipo de dato
-console.log(valor1!==valor2); //true comparación estricta
-console.log(valor1!=valor2); //false
+console.log(valor1==valor2);// true compara los valores 
+console.log(valor1==valor2);// false comparacion estricta compara
+console.log(valor1!==valor2);//true comparacion estricta 
+console.log(valor1!=valor2);//false
 
 
-//Operadores lógicos
+// Operadores logicos
 console.log("Operadores");
-
-const isAdmin = true;
+ 
+const isAdmin = true; 
 const isTeacher = false;
 
-console.log(isAdmin || isTeacher); //true operador or
-console.log(isAdmin && isTeacher); //false operador and
-console.log(!isAdmin); //false operador not
+console.log(isAdmin || isTeacher);//true operador or 
+console.log(isAdmin && isTeacher);//false operador and
+console.log(isAdmin);//false operador not 
 
-//Ternario
-const nota = 3.5;
+//Ternario 
+const nota = 3.5
 const estado = nota >= 3.0 ? "Aprobado" : "Reprobado";
-console.log("Ternario: ", estado);
+console.log("Ternario", estado);
 
-//Funciones en Javascript
+//Funcion en Javascript
 
-console.log("4. Funciones");
+console.log("4.Funciones");
 
-//declaración y retorno
+// Declaracion y retorno
 
-function sumar(x, y){
+function sumar(x,y){
     return x + y;
 }
 
 let sum1 = sumar(4);
 console.log(sum1);
 
-//Expresión de función
-const restar = function(x=0, y=0){
+//Expresion de funcion 
+const restar = function (x,y){
     return x-y;
 }
 
-console.log("Resultado de restar ", restar(4, 3));
+console.log("Resultado de restar", restar(4, 3));
 
-//Flecha - retorno implícito
-const multiplicar = (x, y=1) => x*y;
-const multiplicar2 = (x, y=1) => {
+//Flecha - Retorno implicito 
+const multiplicar = (x,y) => x*y;
+const multiplicar2 = (x, y) => {
     x*y
-};
+}
 
-console.log("Resultado Arrow Function: ", multiplicar(5));
+console.log("Resultado de arrow fuction", multiplicar(2, 5));
 
-const saludar = (nombre) => `Hola ${nombre}`
-console.log(saludar("Adriana"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const saludar = (nombre) => `Hola${nombre}`;
+console.log(saludar("Tiven"));
 
 
 
