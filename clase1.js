@@ -1,4 +1,7 @@
 /*
+
+CLASE 1
+
 Variables: let, var, const
 -let: varieble de bloque, se puede reasignar
 -var: variable global, se puede reasignar
