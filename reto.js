@@ -44,7 +44,7 @@ const nuevoEstudiante = {
 
 const estudiantesActualizados = agregarEstudiante(estudiantes, nuevoEstudiante);
 
-// Mostrar resultados
+
 console.log("Ordenados por nombre:", ordenarPorNombreAsc(estudiantes));
 console.log("Aprobados:", estudiantesAprobados);
 console.log("No aprobados:", estudiantesNoAprobados);
