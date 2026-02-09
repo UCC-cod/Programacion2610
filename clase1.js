@@ -151,3 +151,12 @@ console.log("Resultado Arrow Function: ", multiplicar(5));
 
 const saludar = (nombre) => `Hola ${nombre}`
 console.log(saludar("Adriana"));
+
+
+// crear y guardar cambios en GitHub y visual studio code//
+//git init
+//git checkout -b deysimar
+//git add .
+//git commit -m "mensaje del commit"
+//git remote add origin : aqui va el enlace del repositorio de github
+//git push origin deysimar
