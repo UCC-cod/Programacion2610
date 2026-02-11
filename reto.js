@@ -14,7 +14,7 @@ const estudiantes = [
   { id: 8, nombre: "Javier Núñez", edad: 24, carrera: "Economía", nota: 1, aprobado: false }
 ];
 
-// Ordenar por nombre ascendente
+// Ordenar por nombre asc
 const ordenarPorNombreAsc = (lista) =>
   [...lista].sort((a, b) =>
     a.nombre.toLowerCase().localeCompare(b.nombre.toLowerCase())
@@ -32,7 +32,7 @@ const agregarEstudiante = (lista, nuevoEstudiante) => [
   { ...nuevoEstudiante, nombre: nuevoEstudiante.nombre.toLowerCase() }
 ];
 
-// Ejemplo de uso
+// Ejemplo
 const nuevoEstudiante = {
   id: 9,
   nombre: "Laura Gómez",
