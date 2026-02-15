@@ -94,4 +94,4 @@ console.log("Docente: ", curso[clave])
 console.log("Resumen: ", curso.resumenHorario())
 
 console.log(curso.estudiantes.sort().reverse())
-
+  
