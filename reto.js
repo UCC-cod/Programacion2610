@@ -137,7 +137,7 @@ function agregarEstudiante(lista, nombre, edad, carrera, nota) {
   console.log("Estudiante agregado correctamente");
 }
 
-agregarEstudiante(estudiantes, "Laura Méndez", 21, "Contaduría", 4.2);
+agregarEstudiante(estudiantes, "Eilin Carrillo", 19, "Ingenieria", 4.2);
 
 console.log("Lista actualizada:");
 console.log(estudiantes);
