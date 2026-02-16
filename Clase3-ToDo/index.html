@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    /* 
+    ==========================================================
+    Estilos mínimos para visualizar la clase de forma clara.
+    Puedes modificarlos libremente durante la explicación.
+    ==========================================================
+    */
+    :root {
+      --bg: #0f172a;         /* fondo oscuro */
+      --card: #111827;       /* tarjetas */
+      --muted: #9ca3af;      /* texto secundario */
+      --text: #e5e7eb;       /* texto principal */
+      --accent: #38bdf8;     /* azul */
+      --ok: #22c55e;         /* verde */
+      --warn: #f59e0b;       /* naranja */
+      --danger: #ef4444;     /* rojo */
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(180deg, #0b1220, var(--bg));
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      padding: 28px 18px;
+      border-bottom: 1px solid #1f2937;
+      background: rgba(17, 24, 39, 0.4);
+      backdrop-filter: blur(6px);
+      position: sticky; top: 0; z-index: 10;
+    }
+    h1 {
+      margin: 0 0 4px 0;
+      font-size: 1.6rem;
+    }
+    header p { margin: 0; color: var(--muted); }
+    main {
+      max-width: 1040px;
+      margin: 22px auto 64px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    section, article {
+      background: linear-gradient(180deg, #0f1524, var(--card));
+      border: 1px solid #1f2937;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    section h2, article h3 { margin-top: 0; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .muted { color: var(--muted); }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid #334155;
+      background: #0b1220;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56,189,248,0.18); }
+    input, select {
+      background: #0b1220;
+      color: var(--text);
+      border: 1px solid #334155;
+      padding: 8px 10px;
+      border-radius: 10px;
+      outline: none;
+    }
+    input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56,189,248,0.18); }
+    ul.demo { margin: 0; padding-left: 20px; }
+    li.demo-item { margin: 6px 0; }
+    .tag { font-size: .8rem; color: var(--muted); border: 1px dashed #334155; padding: 2px 8px; border-radius: 999px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .danger { color: var(--danger); }
+    .panel {
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 10px;
+      background: #0b1220;
+    }
+    .todo-item {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; padding: 8px 10px; border: 1px solid #334155; border-radius: 10px;
+    }
+    .todo-item.done { opacity: 0.65; text-decoration: line-through; }
+    .pill {
+      font-size: .75rem; padding: 2px 8px; border-radius: 999px;
+      border: 1px solid #334155; color: var(--muted);
+    }
+    .kbd { font-family: ui-monospace, Menlo, Monaco, Consolas; background: #0b1220; border: 1px solid #334155; padding: 2px 6px; border-radius: 6px; }
+    footer { max-width: 1040px; margin: 36px auto; color: var(--muted); padding: 0 16px; }
+  </style>
+</head>
+<body>
+    <!-- MINI PROYECTO: Lista de tareas -->
+    <section id="todo">
+      <h2>Mini proyecto: Lista interactiva (To‑Do)</h2>
+      <p class="muted">Agregar tareas, marcar como hecho y eliminar (delegación de eventos)</p>
+      <article class="panel">
+        <form id="todo-form" class="row" autocomplete="off">
+          <input id="todo-input" type="text" placeholder="Escribe una tarea…" />
+          <button class="btn" type="submit">Agregar</button>
+        </form>
+        <div id="todo-list" style="margin-top:10px; display: grid; gap: 8px;">
+          <!-- Items dinámicos -->
+        </div>
+      </article>
+    </section>
+    <script src="todo.js"></script>
+</body>
+</html>
