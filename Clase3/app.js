@@ -17,6 +17,7 @@ console.log(introSelection());
 */
 
 //Modificar elementos
+/*
 const pStyle = document.getElementById("p-style");
 console.log(pStyle);
 pStyle.style.color = "yellow";
@@ -39,5 +40,45 @@ console.log(ultimo);
 //Eliminar un elemento
 ultimo.remove();
 //pStyle.remove();
+*/
+
+//Eventos
+//Click, mouse, teclado
+
+(function eventos(){
+    const btnAlert = document.getElementById("btn-alert");
+
+    //Click Básico
+    btnAlert.addEventListener("click", ()=>{
+        console.log("Hice click");
+        //alert("Hice click pero con alerta")
+        const h3Titulo = document.getElementById("titulo-demo");
+        h3Titulo.textContent = "Este es un texto nuevo cuando hago click";
+    })
+
+    //Mouse: mouseover(hover) - mouseout
+    const box = document.getElementById("hover-box");
+    box.addEventListener("mouseover", ()=>{
+        box.style.background = "yellow";
+        box.textContent = "Mouseover ejemplo";
+    });
+    box.addEventListener("mouseout", ()=>{
+        box.style.background = "transparent";
+        box.textContent = "Hover aquí - Mouseout";
+    })
+
+    //Teclado: keydown/keyup
+    const keyInput = document.getElementById("key-input"); //input
+    const keyOut = document.getElementById("key-output"); //span
+
+    keyInput.addEventListener("keydown", (e)=>{
+        keyOut.textContent = `Tecla presionada es: ${e.key}`;
+    })
+
+    keyInput.addEventListener("keyup", (e)=>{
+        console.log("Evento keyup", e.key);
+    })
+})();
+
 
 
