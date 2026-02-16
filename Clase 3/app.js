@@ -79,6 +79,7 @@ pStyle.remove(); // Elimina el elemento del selector pStyle
 (function formularios () {
     const from = document.getElementById("login-form");
     const mensajeError = document.getElementById("form-output");
+    const btnClear = document.getElementById("btn-clear-form");
     function validarCampos ({usuario, clave, rol}){
         const errores =[];
         if (!usuario || usuario.trim().length < 3){
@@ -108,5 +109,8 @@ pStyle.remove(); // Elimina el elemento del selector pStyle
         mensajeError.textContent = `Bienvenido, ${usuario} ${rol}`;
         mensajeError.style.color = "var(--ok)";
     });
-
+     btnClear.addEventListener("click", () => {
+      from.reset();
+      mensajeError.textContent = "";
+     });
 })();
