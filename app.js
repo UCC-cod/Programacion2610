@@ -1,7 +1,7 @@
 //console.log("Hola");
 
 //Selección de elementos
-
+/*
 function introSelection(){
     const h3Titulo = document.getElementById("titulo-demo");
     const selector = document.querySelector("p");
@@ -14,87 +14,117 @@ function introSelection(){
 }
 
 console.log(introSelection());
+*/
 
-const pstyle = document.getElementById("p-style");
-console.log(pstyle);
-pstyle.style.color = "yellow";
-pstyle.style.fontSize = "20px";
+//Modificar elementos
+/*
+const pStyle = document.getElementById("p-style");
+console.log(pStyle);
+pStyle.style.color = "yellow";
+pStyle.style.fontWeight= "1000";
+
 const li = document.createElement("li");
-li.className = "demo item";
-li.textContent = "nuevo elemento";
+li.className = "demo-item";
+li.textContent = "Elemento nuevo";
 const ul = document.getElementById("list-styles");
-// este me lo agrega al final 
+
+//Agregar el elemento nuevo al final
 ul.append(li);
-// este me lo agrega al principio
+
+//Agregar el elemento nuevo al inicio
 ul.prepend(li);
+
+//Seleccionar el último elemento de un nodo padre
 const ultimo = ul.lastElementChild;
 console.log(ultimo);
+//Eliminar un elemento
 ultimo.remove();
+//pStyle.remove();
+*/
 
-// Eventos 
-// click, mouse ,teclado
+//Eventos
+//Click, mouse, teclado
+/*
 (function eventos(){
-const btnAlert = document.getElementById("btn-alert");
-btnAlert.addEventListener("click", function(){
-    console.log("Se hizo click en el boton");
-    alert("Hola, se hizo click en el boton");
-})
-//mouse: mouseover (hover)
-const box  = document.getElementById("hover-box");
-box.addEventListener("mouseover", function(){
-    box.style.backgroundColor = "lightblue";
-    box.textContent = "mouseover ejemplo";
-});
-box.addEventListener("mouseout", function(){
-    box.style.backgroundColor = "transparent";
-    box.textContent = "hove aqui con - Mouseout";
-});
- //teclado: keydown, keyup
- const keyInput = document.getElementById("key-input");// input de texto
- const keyout = document.getElementById("key-output");// spam
+    const btnAlert = document.getElementById("btn-alert");
 
-    keyInput.addEventListener("keydown",(e)=>{
-        keyout.textContent = `Tecla presionada: ${e.key}`;
-    });
+    //Click Básico
+    btnAlert.addEventListener("click", ()=>{
+        console.log("Hice click");
+        //alert("Hice click pero con alerta")
+        const h3Titulo = document.getElementById("titulo-demo");
+        h3Titulo.textContent = "Este es un texto nuevo cuando hago click";
+    })
 
-    keyInput.addEventListener("keyup",(e)=>{
-        keyout.textContent = `Tecla soltada: ${e.key}`;
+    //Mouse: mouseover(hover) - mouseout
+    const box = document.getElementById("hover-box");
+    box.addEventListener("mouseover", ()=>{
+        box.style.background = "yellow";
+        box.textContent = "Mouseover ejemplo";
     });
-        
+    box.addEventListener("mouseout", ()=>{
+        box.style.background = "transparent";
+        box.textContent = "Hover aquí - Mouseout";
+    })
+
+    //Teclado: keydown/keyup
+    const keyInput = document.getElementById("key-input"); //input
+    const keyOut = document.getElementById("key-output"); //span
+
+    keyInput.addEventListener("keydown", (e)=>{
+        keyOut.textContent = `Tecla presionada es: ${e.key}`;
+    })
+
+    keyInput.addEventListener("keyup", (e)=>{
+        console.log("Evento keyup", e.key);
+    })
 })();
- // formulacion y validacion 
- function formulario(){
+*/
+
+//Formularios y validación
+
+(function formularios(){
     const form = document.getElementById("login-form");
     const mensajeError = document.getElementById("form-output");
+    const btnClear = document.getElementById("btn-clear-form");
+
+    function validarCampos({ usuario, clave, rol }){
+        const errores = [];
+        if(!usuario || usuario.trim().length < 3){
+            errores.push("El usuario debe tener más de 3 caracteres");
+        }
+        if(!clave || clave.length < 5){
+            errores.push("La clave debe contener más de 5 caracteres");
+        }
+        if(!rol){
+            errores.push("Debe seleccionar un rol");
+        }
+        return errores;
+    }
     
-    function validarCampos({usuario,clave,rol}){
-        const errores= [];
-        if(usuario.value.trim() === ""){
-            errores.push("El campo usuario es obligatorio");
-        }
-        if(clave.value.trim() === ""){
-            errores.push("El campo clave es obligatorio");
-        }
-        if(rol.value === ""){
-            errores.push("El campo rol es obligatorio");
-        }
-        return errores; 
-    } 
-    form .addEventListener("submit",(e)=>{
+    form.addEventListener("submit", (e)=>{
         e.preventDefault();
+
         const usuario = document.getElementById("usuario").value;
-        console.log(usuario);     
         const clave = document.getElementById("clave").value;
         const rol = document.getElementById("rol").value;
         
-        log("comprobando", usuario, clave, rol);
-        const errores = validarCampos({usuario,clave,rol});
-        if(errores.length > 0){
-            mensajeError.innerHTML = `<span class="error">${errores.join("<br>")}</span>`;
+        const errores = validarCampos({ usuario, clave, rol });
+        
+        if(errores.length>0){
+            mensajeError.innerHTML = `<span>Errores: ${errores.join("<br>")}</span>`;
             mensajeError.style.color = "var(--danger)";
             return
         }
-        mensajeError.textContent = `Bienvenido ${usuario} ${rol}`;
-        mensajeError.style.color = "var(--success)";
+
+        mensajeError.textContent = `Bienvenido, ${usuario} ${rol}`;
+        mensajeError.style.color = "var(--ok)";
+
     });
- }
+
+    btnClear.addEventListener("click", ()=>{
+        form.reset();
+        mensajeError.textContent = "";
+    })
+
+})();
