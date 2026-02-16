@@ -86,6 +86,8 @@ ultimo.remove();
 (function formularios(){
     const form = document.getElementById("login-form");
     const mensajeError = document.getElementById("form-output");
+    const btnClear = document.getElementById("btn-clear-form");
+
 
     function validarCampos({ usuario, clave, rol }){
         const errores = [];
@@ -119,6 +121,11 @@ ultimo.remove();
         mensajeError.textContent = `Bienvenido, ${usuario} ${rol}`;
         mensajeError.style.color = "var(--ok)";
 
+    });
+
+    btnClear.addEventListener("click", ()=>{
+        form.reset();
+        mensajeError.textContent = "";
     })
 
 })();
