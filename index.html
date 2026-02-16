@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Clase DOM: Introducción, Modificaciones, Eventos y Formularios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* 
+    ==========================================================
+    Estilos mínimos para visualizar la clase de forma clara.
+    Puedes modificarlos libremente durante la explicación.
+    ==========================================================
+    */
+    :root {
+      --bg: #0f172a;         /* fondo oscuro */
+      --card: #111827;       /* tarjetas */
+      --muted: #9ca3af;      /* texto secundario */
+      --text: #e5e7eb;       /* texto principal */
+      --accent: #38bdf8;     /* azul */
+      --ok: #22c55e;         /* verde */
+      --warn: #f59e0b;       /* naranja */
+      --danger: #ef4444;     /* rojo */
+    }
+    * { box-sizing: border-box; } 
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(180deg, #0b1220, var(--bg));
+      color: var(--text);
+      line-height: 1.45;
+    }
+    header {
+      padding: 28px 18px;
+      border-bottom: 1px solid #1f2937;
+      background: rgba(17, 24, 39, 0.4);
+      backdrop-filter: blur(6px);
+      position: sticky; top: 0; z-index: 10;
+    }
+    h1 {
+      margin: 0 0 4px 0;
+      font-size: 1.6rem;
+    }
+    header p { margin: 0; color: var(--muted); }
+    main {
+      max-width: 1040px;
+      margin: 22px auto 64px;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    section, article {
+      background: linear-gradient(180deg, #0f1524, var(--card));
+      border: 1px solid #1f2937;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+    section h2, article h3 { margin-top: 0; }
+    code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+    .muted { color: var(--muted); }
+    .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid #334155;
+      background: #0b1220;
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+    .btn:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56,189,248,0.18); }
+    input, select {
+      background: #0b1220;
+      color: var(--text);
+      border: 1px solid #334155;
+      padding: 8px 10px;
+      border-radius: 10px;
+      outline: none;
+    }
+    input:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(56,189,248,0.18); }
+    ul.demo { margin: 0; padding-left: 20px; }
+    li.demo-item { margin: 6px 0; }
+    .tag { font-size: .8rem; color: var(--muted); border: 1px dashed #334155; padding: 2px 8px; border-radius: 999px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .danger { color: var(--danger); }
+    .panel {
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 10px;
+      background: #0b1220;
+    }
+    .todo-item {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; padding: 8px 10px; border: 1px solid #334155; border-radius: 10px;
+    }
+    .todo-item.done { opacity: 0.65; text-decoration: line-through; }
+    .pill {
+      font-size: .75rem; padding: 2px 8px; border-radius: 999px;
+      border: 1px solid #334155; color: var(--muted);
+    }
+    .kbd { font-family: ui-monospace, Menlo, Monaco, Consolas; background: #0b1220; border: 1px solid #334155; padding: 2px 6px; border-radius: 6px; }
+    footer { max-width: 1040px; margin: 36px auto; color: var(--muted); padding: 0 16px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>DOM en JavaScript — Introducción, Modificaciones, Eventos y Formularios</h1>
+    <p class="muted">Demostraciones integradas para clase. Lee los comentarios del archivo para la teoría.</p>
+  </header>
+
+  <main>
+    <!-- BLOQUE 1: Introducción y selección -->
+    <section id="intro">
+      <h2>1 Introducción y selección de elementos</h2>
+      <p class="muted">Ejemplos: <code>getElementById</code>, <code>querySelector</code>, <code>querySelectorAll</code></p>
+      <article class="panel">
+        <div class="row">
+          <span class="tag">#titulo-demo</span>
+          <button id="btn-textcontent" class="btn">Cambiar con textContent</button>
+          <button id="btn-innerhtml" class="btn">Cambiar con innerHTML</button>
+          <button id="btn-reset" class="btn">Reset</button>
+        </div>
+        <h3 id="titulo-demo">Título inicial</h3>
+        <p id="p-demo" class="muted">Este párrafo tiene la clase <code>.muted</code></p>
+        <ul id="lista-demo" class="demo">
+          <li class="demo-item">Item A</li>
+          <li class="demo-item">Item B</li>
+          <li class="demo-item">Item C</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 2: Modificar elementos -->
+    <section id="mods">
+      <h2>2 Modificar elementos: estilos, clases, atributos</h2>
+      <p class="muted">Ejemplos: <code>style</code>, <code>classList</code>, <code>setAttribute</code></p>
+      <article class="panel">
+        <div class="row">
+          <button id="btn-color" class="btn">Color azul</button>
+          <button id="btn-big" class="btn">Aumentar tamaño</button>
+          <button id="btn-toggle-class" class="btn">Toggle clase "warn"</button>
+          <button id="btn-attr" class="btn">Poner title al párrafo</button>
+          <button id="btn-add-li" class="btn">Agregar &lt;li&gt;</button>
+          <button id="btn-prepend-li" class="btn">Prepend &lt;li&gt;</button>
+          <button id="btn-remove-last" class="btn">Eliminar último &lt;li&gt;</button>
+        </div>
+        <p id="p-style">Párrafo demostración de estilos y atributos</p>
+        <ul id="list-styles" class="demo">
+          <li class="demo-item">Inicio 1</li>
+          <li class="demo-item">Inicio 2</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- BLOQUE 3: Eventos -->
+    <section id="events">
+      <h2>3 Eventos: click, mouse, teclado y delegación</h2>
+      <p class="muted">Ejemplos: <code>addEventListener</code>, <code>event.target</code>, delegación</p>
+      <article class="panel">
+        <div class="row">
+          <button id="btn-alert" class="btn">Click → alert()</button>
+          <span class="pill">Pasa el mouse sobre el recuadro</span>
+          <span class="pill">Escribe en el input</span>
+        </div>
+        <div id="hover-box" style="margin-top:10px; height:70px; border:1px dashed #334155; border-radius:10px; display:flex; align-items:center; justify-content:center;">
+          Hover aquí
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <input id="key-input" type="text" placeholder="Prueba teclado (keydown/keyup)" />
+          <span id="key-output" class="muted">Tecla: —</span>
+        </div>
+        <hr style="border-color:#1f2937;">
+        <div class="row">
+          <button id="btn-add-chip" class="btn">Agregar "chip"</button>
+          <span class="muted">Haz click en cualquier chip para eliminarlo (delegación)</span>
+        </div>
+        <div id="chips" class="row" style="margin-top:8px; gap:6px; flex-wrap: wrap;">
+          <!-- chips dinámicos -->
+        </div>
+      </article>
+    </section>
+
+    <!-- BLOQUE 4: Formularios -->
+    <section id="forms">
+      <h2>4 Formularios y validación</h2>
+      <p class="muted">Ejemplo: prevenir envío, validar campos, mostrar mensajes</p>
+      <article class="panel">
+        <form id="login-form" novalidate>
+          <div class="row">
+            <label for="usuario" class="pill">Usuario</label>
+            <input id="usuario" name="usuario" type="text" placeholder="Usuario" required minlength="3" />
+          </div>
+          <div class="row" style="margin-top:8px;">
+            <label for="clave" class="pill">Clave</label>
+            <input id="clave" name="clave" type="password" placeholder="Clave" required minlength="4" />
+          </div>
+          <div class="row" style="margin-top:8px;">
+            <label for="rol" class="pill">Rol</label>
+            <select id="rol" name="rol">
+              <option value="">Selecciona rol…</option>
+              <option>Estudiante</option>
+              <option>Docente</option>
+            </select>
+          </div>
+          <div class="row" style="margin-top:12px;">
+            <button class="btn" type="submit">Enviar</button>
+            <button id="btn-clear-form" class="btn" type="button">Limpiar</button>
+          </div>
+        </form>
+        <p id="form-output" class="muted"></p>
+      </article>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Consejo: abre la <span class="kbd">Consola</span> del navegador para ver logs educativos de esta clase.</p>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
