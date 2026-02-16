@@ -28,5 +28,14 @@
         return container;
     }
 
-    
+    form.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        const texto = input.value.trim();
+        const item = crearItemToDo(texto);
+        list.prepend(item);
+    });
+
+    //Tarea: Hacer la funcionalidad del hecho y el eliminar -> evento de escucha - click
+    //El hecho debve subrayar la tarea
+    //Eliminar la tarea debe desaparecer
 })();
