@@ -44,7 +44,7 @@ ultimo.remove();
 
 //Eventos
 //Click, mouse, teclado
-
+/*
 (function eventos(){
     const btnAlert = document.getElementById("btn-alert");
 
@@ -79,5 +79,50 @@ ultimo.remove();
         console.log("Evento keyup", e.key);
     })
 })();
+*/
+
+//Formularios y validación
+
+(function formularios(){
+    const form = document.getElementById("login-form");
+    const mensajeError = document.getElementById("form-output");
+
+    function validarCampos({ usuario, clave, rol }){
+        const errores = [];
+        if(!usuario || usuario.trim().length < 3){
+            errores.push("El usuario debe tener más de 3 caracteres");
+        }
+        if(!clave || clave.length < 5){
+            errores.push("La clave debe contener más de 5 caracteres");
+        }
+        if(!rol){
+            errores.push("Debe seleccionar un rol");
+        }
+        return errores;
+    }
+    
+    form.addEventListener("submit", (e)=>{
+        e.preventDefault();
+
+        const usuario = document.getElementById("usuario").value;
+        const clave = document.getElementById("clave").value;
+        const rol = document.getElementById("rol").value;
+        
+        const errores = validarCampos({ usuario, clave, rol });
+        
+        if(errores.length>0){
+            mensajeError.innerHTML = `<span>Errores: ${errores.join("<br>")}</span>`;
+            mensajeError.style.color = "var(--danger)";
+            return
+        }
+
+        mensajeError.textContent = `Bienvenido, ${usuario} ${rol}`;
+        mensajeError.style.color = "var(--ok)";
+
+    })
+
+})();
+
+
 
 
