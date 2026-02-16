@@ -15,3 +15,29 @@ function introSelection(){
 
 console.log(introSelection());
 */
+
+//Modificar elementos
+const pStyle = document.getElementById("p-style");
+console.log(pStyle);
+pStyle.style.color = "yellow";
+pStyle.style.fontWeight= "1000";
+
+const li = document.createElement("li");
+li.className = "demo-item";
+li.textContent = "Elemento nuevo";
+const ul = document.getElementById("list-styles");
+
+//Agregar el elemento nuevo al final
+ul.append(li);
+
+//Agregar el elemento nuevo al inicio
+ul.prepend(li);
+
+//Seleccionar el último elemento de un nodo padre
+const ultimo = ul.lastElementChild;
+console.log(ultimo);
+//Eliminar un elemento
+ultimo.remove();
+//pStyle.remove();
+
+
