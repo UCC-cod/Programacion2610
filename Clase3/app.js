@@ -58,7 +58,8 @@ console.log(introSelection());
 
 (function forms() {
     const form = document.getElementById("login-form");
-    const errmsg = document.getElementById("form-output")
+    const errmsg = document.getElementById("form-output");
+    const bclear = document.getElementById("btn-clear-form");
 
     function validar({user, clave, rol}) {
         const errores = [];
@@ -88,6 +89,11 @@ console.log(introSelection());
     }
     errmsg.textContent = `Bienvenido: ${rol} ${user}`;
     errmsg.style.color = "var(--ok)";
+    });
+
+    bclear.addEventListener("click", ()=>{
+        form.reset();
+        errmsg.textContent = "";
     })
 })();
 
