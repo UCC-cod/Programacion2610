@@ -23,6 +23,15 @@
         btnDelete.className = "btn";
         btnDelete.textContent = "Eliminar";
 
+        // Funcionilidad de los botones
+       btnDone.addEventListener("click", () => {
+         container.classList.toggle("done");
+     });
+
+      btnDelete.addEventListener("click", () => {
+     container.remove();
+     });
+
         containerAcciones.append(btnDone, btnDelete);
         container.append(label, containerAcciones);
         return container;
@@ -30,12 +39,18 @@
 
     form.addEventListener("submit", (e)=>{
         e.preventDefault();
-        const texto = input.ariaValueMax.trim();
-        const item= crearItemTODO(texto);
-        list.prepend(item);
+        const texto = input.value;
+        
+       if(texto.trim() !== ""){
+         const item = crearItemTODO(texto);
+         list.prepend(item); 
+         input.value = "";
+       } else {
+         alert("¡DEBES ESCRIBIR ALGO PRIMERO!");
+       }
     });
 
-    //tarea: hacer la funcionalidad del hecho y el eliminar -> evento de escucha -click
-    // el hecho debe subrayar la tarea
-    //Eliminar la tarea debe desaparecer 
+    //tarea: hacer la funcionalidad del hecho y el eliminar -> evento de escucha -click (hecho)
+    // el hecho debe subrayar la tarea (hecho)
+    //Eliminar la tarea debe desaparecer (hecho)
 })();   

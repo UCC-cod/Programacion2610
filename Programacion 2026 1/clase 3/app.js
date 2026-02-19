@@ -59,7 +59,7 @@ ultimo.remove();
     //Mouse: mouseover(hover) - mouseout
     const box = document.getElementById("hover-box");
     box.addEventListener("mouseover", ()=>{
-        box.style.background = "yellow";
+        box.style.background = "purple";
         box.textContent = "Mouseover ejemplo";
     });
     box.addEventListener("mouseout", ()=>{
