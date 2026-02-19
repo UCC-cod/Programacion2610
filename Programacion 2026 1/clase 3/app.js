@@ -1,7 +1,7 @@
 //console.log("Hola");
 
 //Selección de elementos
-/*
+
 function introSelection(){
     const h3Titulo = document.getElementById("titulo-demo");
     const selector = document.querySelector("p");
@@ -14,10 +14,10 @@ function introSelection(){
 }
 
 console.log(introSelection());
-*/
+
 
 //Modificar elementos
-/*
+
 const pStyle = document.getElementById("p-style");
 console.log(pStyle);
 pStyle.style.color = "yellow";
@@ -40,11 +40,11 @@ console.log(ultimo);
 //Eliminar un elemento
 ultimo.remove();
 //pStyle.remove();
-*/
+
 
 //Eventos
 //Click, mouse, teclado
-/*
+
 (function eventos(){
     const btnAlert = document.getElementById("btn-alert");
 
@@ -79,7 +79,7 @@ ultimo.remove();
         console.log("Evento keyup", e.key);
     })
 })();
-*/
+
 
 //Formularios y validación
 
