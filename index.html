@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Visor Pokémon</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
+        .container { max-width: 400px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 24px; }
+        h1 { text-align: center; color: #e3350d; }
+        .input-group { display: flex; margin-bottom: 16px; }
+        input[type="text"] { flex: 1; padding: 8px; border-radius: 4px 0 0 4px; border: 1px solid #ccc; }
+        button { padding: 8px 16px; border: none; background: #e3350d; color: #fff; border-radius: 0 4px 4px 0; cursor: pointer; }
+        .pokemon-info { text-align: center; margin-top: 16px; }
+        .pokemon-img { width: 120px; height: 120px; object-fit: contain; margin-bottom: 8px; }
+        .error { color: #e3350d; text-align: center; margin-top: 16px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mini Visor Pokémon</h1>
+        <div class="input-group">
+            <input type="text" id="pokemonInput" placeholder="Nombre del Pokémon">
+            <button id="searchBtn">Buscar</button>
+        </div>
+        <div id="pokemonInfo" class="pokemon-info"></div>
+        <div id="errorMsg" class="error"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
