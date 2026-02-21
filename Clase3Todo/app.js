@@ -23,6 +23,21 @@
         btnDelete.className = "btn";
         btnDelete.textContent = "Eliminar";
 
+        btnDone.addEventListener("click", () => {
+            if (label.style.textDecoration == "none") {
+                label.style.textDecoration = "line-through";
+                label.style.color = "green"
+            } else {
+                label.style.textDecoration = "none";
+                label,style.color = "white";
+            }
+           
+        });
+
+        btnDelete.addEventListener("click", () => {
+            container.remove();
+        });
+
         containerAcciones.append(btnDone, btnDelete);
         container.append(label, containerAcciones);
         return container;
@@ -31,8 +46,11 @@
     form.addEventListener("submit", (e)=>{
         e.preventDefault();
         const texto = input.value.trim();
+        if(texto === "") return;
+
         const item = crearItemToDo(texto);
-        list.append(item);
-    })
+        list.prepend(item);
+        input.value = "";
+    });
 
 })();

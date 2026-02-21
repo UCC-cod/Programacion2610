@@ -7,7 +7,7 @@ function introSelection(){
     const nameSelector = document.getElementsByName("usuario");
     hTitulo.textContent = "Este es un texto nuevo";
     hTitulo.innerHTML = "Este es un nuevo texto <strong>HTML</strong>";
-    return hTitulo;
+    return classSelector;
 }
 
 // Mod Elementos
