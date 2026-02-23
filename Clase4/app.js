@@ -21,9 +21,10 @@ async function obtenerPokemon(nombre) {
         console.log("URL imagen: ", data.sprites.front_default);        
 
     } catch (error) {
-        
+        //Con el catch manejo los errores
+        console.error("Hubo un error al consular la API: ", error.message)
     }
     
 }
 
-obtenerPokemon("pikachu");
+obtenerPokemon("dito");
