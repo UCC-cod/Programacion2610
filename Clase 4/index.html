@@ -4,72 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootsrtrap + Appi</title>
+    <title>Pokemones</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="bi bi-suitcase-fill"></i></a>
-            <p>Mi aplicacion de reservas</p>
-            <button type="button" class="btn btn-secondary">Iniciar sesión</button>
-        </div>
-    </nav>
-
-    <main class="container py-4">
-        <div id="carouselExampleFade" class="carousel slide carousel-fade">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://media.istockphoto.com/id/867902780/vector/vector-landscape-with-blue-silhouettes-of-mountains-hills-and-forest-and-sky-with-clouds-and.jpg?s=2048x2048&w=is&k=20&c=LO6nzGS8McXCBrVanjLrgVsiq5FJlwHvYo9XvLRf2ug="
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://media.istockphoto.com/id/868592684/vector/blue-and-purple-landscape-with-silhouettes-of-mountains-hills-and-forest-and-stars-in-the-sky.jpg?s=2048x2048&w=is&k=20&c=nSody3AeU6rp1Vd6-sAg756ujdB950OSqnJxp-sjXvg="
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://media.istockphoto.com/id/925298244/vector/vector-flat-cartoon-night-landscape-with-red-and-purple-silhouettes-of-mountains-hills-and.jpg?s=2048x2048&w=is&k=20&c=7Sb8_kipoOgu1WWWnFYQnrWSu_QVMfZYJYjP2cFJajI="
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://media.istockphoto.com/id/1195967219/vector/banner-illustration-background-night-landscape-wolf-howling-at-the-moon-in-the-mountains.jpg?s=2048x2048&w=is&k=20&c=JEH2AD4M-Z9iX2dRHO-2XUFyFdvwsQl_28wuVMY84Rg="
-                        class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </main>
-    <footer class="fixed-bottom">
-        <nav class="text-center footer mt-auto py-3">
+    <nav>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <span class="navbar-text mx-auto p-2">
-                    Todos los derechos reservados
-                </span>
+                <a class="navbar-brand" href="#">Pokemon</i></a>
+                <p>Mi Aplicación de Pokemones</p>
             </div>
         </nav>
+    </nav>
+    <main class="container py-4">
+        <div class="alert alert-info" role="alert">
+            Bienvenidos a mi app
+        </div>
+
+        <div class="row g-4 w-25 text-center">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="card-title text-capitalize" id="pokemonNombre">Nombre Pokemon</h2>
+                    <img id="pokemonImg" src="" alt="" class="w-100">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+
     </footer>
-     <!--Bootstrap JS para habilitar los componentes interactivos-->
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    </div>
-     
+    <script src="app.js"></script>
 </body>
 
 </html>
